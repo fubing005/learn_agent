@@ -10,6 +10,7 @@ load_dotenv()
 # 也可以直接在这里赋值，但绝不推荐上传到代码仓库
 API_KEY = os.getenv("OPENAI_API_KEY", None)
 BASE_URL = os.getenv("OPENAI_BASE_URL",None)
+MODEL = os.getenv("MODEL",None)
 
 # print(f"API_KEY: {API_KEY}, BASE_URL: {BASE_URL}")
 # exit()
@@ -18,7 +19,7 @@ def get_response():
     client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
     try:
         completion = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=MODEL,
             messages=[{'role': 'system', 'content': 'You are a helpful assistant.'},
                     {'role': 'user', 'content': '你是谁？'}]
             )
