@@ -16,6 +16,9 @@ MODEL = os.getenv("MODEL",None)
 # exit()
 
 def get_response():
+    if MODEL is None:
+        raise ValueError("环境变量 MODEL 未设置，请在 .env 文件中配置有效的模型名称。")
+    
     client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
     try:
         completion = client.chat.completions.create(
