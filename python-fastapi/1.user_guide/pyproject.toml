@@ -1,0 +1,27 @@
+[project]
+name = "fastapi-study"
+version = "0.1.0"
+description = "fastapi官方学习文档-用户指南"
+authors = [
+    {name = "shalabing",email = "516051271@qq.com"},
+]
+dependencies = ["fastapi[standard]>=0.136.3", "email-validator>=2.3.0", "python-multipart>=0.0.30", "sqlmodel>=0.0.38", "pysqlite3>=0.6.0", "httpx>=0.28.1", "pytest>=9.0.3"]
+requires-python = ">=3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = false
+
+[tool.fastapi]
+entrypoint = "src.fastapi_study.40-debug:app"
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "httpx2>=2.3.0",
+]
